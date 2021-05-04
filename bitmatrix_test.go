@@ -1,9 +1,7 @@
-package bitmatrix_test
+package bitmatrix
 
 import (
 	"testing"
-
-	. "github.com/dranidis/bitmatrix"
 )
 
 type test struct {
@@ -11,7 +9,7 @@ type test struct {
 	actual   BitMatrix
 }
 
-func TestUpExample(t *testing.T) {
+func TestBothUpExample(t *testing.T) {
 	size := 5
 	board := [][]int{
 		{0, 1, 0, 1, 0},
@@ -28,8 +26,8 @@ func TestUpExample(t *testing.T) {
 		{0, 0, 0, 0, 0},
 	}
 	cases := []test{
-		{NewBitMatrixInt(size).Read(up), NewBitMatrixInt(size).Read(board).Up()},
-		{NewBitMatrixArray(size).Read(up), NewBitMatrixArray(size).Read(board).Up()},
+		{newBitMatrixInt(size).Read(up), newBitMatrixInt(size).Read(board).Up()},
+		{newBitMatrixArray(size).Read(up), newBitMatrixArray(size).Read(board).Up()},
 	}
 
 	for i, cas := range cases {
@@ -39,7 +37,7 @@ func TestUpExample(t *testing.T) {
 	}
 }
 
-func TestDnExample(t *testing.T) {
+func TestBothDnExample(t *testing.T) {
 	size := 5
 	board := [][]int{
 		{0, 1, 0, 1, 0},
@@ -57,8 +55,8 @@ func TestDnExample(t *testing.T) {
 	}
 
 	cases := []test{
-		{NewBitMatrixInt(size).Read(dn), NewBitMatrixInt(size).Read(board).Down()},
-		{NewBitMatrixArray(size).Read(dn), NewBitMatrixArray(size).Read(board).Down()},
+		{newBitMatrixInt(size).Read(dn), newBitMatrixInt(size).Read(board).Down()},
+		{newBitMatrixArray(size).Read(dn), newBitMatrixArray(size).Read(board).Down()},
 	}
 
 	for i, cas := range cases {
@@ -68,7 +66,7 @@ func TestDnExample(t *testing.T) {
 	}
 }
 
-func TestLeftExample(t *testing.T) {
+func TestBothLeftExample(t *testing.T) {
 	size := 5
 	board := [][]int{
 		{0, 1, 0, 1, 0},
@@ -85,8 +83,8 @@ func TestLeftExample(t *testing.T) {
 		{0, 0, 1, 1, 0},
 	}
 	cases := []test{
-		{NewBitMatrixInt(size).Read(left), NewBitMatrixInt(size).Read(board).Left()},
-		{NewBitMatrixArray(size).Read(left), NewBitMatrixArray(size).Read(board).Left()},
+		{newBitMatrixInt(size).Read(left), newBitMatrixInt(size).Read(board).Left()},
+		{newBitMatrixArray(size).Read(left), newBitMatrixArray(size).Read(board).Left()},
 	}
 	for i, cas := range cases {
 		if !cas.expected.Equal(cas.actual) {
@@ -95,7 +93,7 @@ func TestLeftExample(t *testing.T) {
 	}
 }
 
-func TestRightExample(t *testing.T) {
+func TestBothRightExample(t *testing.T) {
 	size := 5
 	board := [][]int{
 		{0, 1, 0, 1, 0},
@@ -112,8 +110,8 @@ func TestRightExample(t *testing.T) {
 		{0, 0, 0, 0, 1},
 	}
 	cases := []test{
-		{NewBitMatrixInt(size).Read(right), NewBitMatrixInt(size).Read(board).Right()},
-		{NewBitMatrixArray(size).Read(right), NewBitMatrixArray(size).Read(board).Right()},
+		{newBitMatrixInt(size).Read(right), newBitMatrixInt(size).Read(board).Right()},
+		{newBitMatrixArray(size).Read(right), newBitMatrixArray(size).Read(board).Right()},
 	}
 	for i, cas := range cases {
 		if !cas.expected.Equal(cas.actual) {
@@ -122,9 +120,9 @@ func TestRightExample(t *testing.T) {
 	}
 }
 
-func TestNoneGetAll(t *testing.T) {
+func TestBothNoneGetAll(t *testing.T) {
 	size := 3
-	var b BitMatrix = NewBitMatrixArray(size)
+	var b BitMatrix = newBitMatrixArray(size)
 
 	b = b.None()
 	// fmt.Println(b)
@@ -137,9 +135,9 @@ func TestNoneGetAll(t *testing.T) {
 	}
 }
 
-func TestSet1GetAll(t *testing.T) {
+func TestBothSet1GetAll(t *testing.T) {
 	size := 3
-	var b BitMatrix = NewBitMatrixArray(size)
+	var b BitMatrix = newBitMatrixArray(size)
 
 	b = b.None().Set(0)
 	// fmt.Println(b)
@@ -155,9 +153,9 @@ func TestSet1GetAll(t *testing.T) {
 	}
 }
 
-func TestSet8GetAll(t *testing.T) {
+func TestBothSet8GetAll(t *testing.T) {
 	size := 3
-	var b BitMatrix = NewBitMatrixArray(size)
+	var b BitMatrix = newBitMatrixArray(size)
 
 	b = b.None().Set(8)
 	// fmt.Println(b)
@@ -173,9 +171,9 @@ func TestSet8GetAll(t *testing.T) {
 	}
 }
 
-func TestSetAllGetAll(t *testing.T) {
+func TestBothSetAllGetAll(t *testing.T) {
 	size := 3
-	var b BitMatrix = NewBitMatrixArray(size)
+	var b BitMatrix = newBitMatrixArray(size)
 
 	b = b.None()
 	for i := 0; i < size*size; i++ {
@@ -192,9 +190,9 @@ func TestSetAllGetAll(t *testing.T) {
 	}
 }
 
-func TestSetGet(t *testing.T) {
+func TestBothSetGet(t *testing.T) {
 	size := 3
-	var b BitMatrix = NewBitMatrixArray(size)
+	var b BitMatrix = newBitMatrixArray(size)
 
 	pos := []int{8, 0, 2, 4}
 	for _, p := range pos {

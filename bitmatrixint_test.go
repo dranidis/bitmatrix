@@ -20,7 +20,7 @@ func equalBoards(t *testing.T, expected *bitMatrixInt, actual *bitMatrixInt) {
 
 func TestOne(t *testing.T) {
 	size := 5
-	one := NewBitMatrixInt(size).Set(0).(*bitMatrixInt)
+	one := newBitMatrixInt(size).Set(0).(*bitMatrixInt)
 	// fmt.Println(one)
 
 	if one.board != uint64(1) {
@@ -30,7 +30,7 @@ func TestOne(t *testing.T) {
 
 func TestUpExample(t *testing.T) {
 	size := 5
-	var b = NewBitMatrixInt(size)
+	var b = newBitMatrixInt(size)
 
 	board := [][]int{
 		{0, 1, 0, 1, 0},
@@ -51,14 +51,14 @@ func TestUpExample(t *testing.T) {
 		{0, 0, 0, 1, 1},
 		{0, 0, 0, 0, 0},
 	}
-	var bn = NewBitMatrixInt(size)
+	var bn = newBitMatrixInt(size)
 	bn.Read(up)
 	equalBoards(t, b, bn)
 }
 
 func TestDnExample(t *testing.T) {
 	size := 5
-	var b = NewBitMatrixInt(size)
+	var b = newBitMatrixInt(size)
 
 	board := [][]int{
 		{0, 1, 0, 1, 0},
@@ -79,14 +79,14 @@ func TestDnExample(t *testing.T) {
 		{0, 1, 0, 1, 1},
 		{0, 0, 1, 0, 0},
 	}
-	var bn = NewBitMatrixInt(size)
+	var bn = newBitMatrixInt(size)
 	bn.Read(dn)
 	equalBoards(t, b, bn)
 }
 
 func TestLeftExample(t *testing.T) {
 	size := 5
-	var b = NewBitMatrixInt(size)
+	var b = newBitMatrixInt(size)
 
 	board := [][]int{
 		{0, 1, 0, 1, 0},
@@ -107,14 +107,14 @@ func TestLeftExample(t *testing.T) {
 		{0, 1, 0, 0, 0},
 		{0, 0, 1, 1, 0},
 	}
-	var bn = NewBitMatrixInt(size)
+	var bn = newBitMatrixInt(size)
 	bn.Read(left)
 	equalBoards(t, b, bn)
 }
 
 func TestRightExample(t *testing.T) {
 	size := 5
-	var b = NewBitMatrixInt(size)
+	var b = newBitMatrixInt(size)
 
 	board := [][]int{
 		{0, 1, 0, 1, 0},
@@ -135,13 +135,13 @@ func TestRightExample(t *testing.T) {
 		{0, 0, 0, 1, 0},
 		{0, 0, 0, 0, 1},
 	}
-	var bn = NewBitMatrixInt(size)
+	var bn = newBitMatrixInt(size)
 	bn.Read(right)
 	equalBoards(t, b, bn)
 }
 func TestNoneGetAll(t *testing.T) {
 	size := 3
-	var b = NewBitMatrixInt(size)
+	var b = newBitMatrixInt(size)
 
 	b = b.None().(*bitMatrixInt)
 	// fmt.Println(b)
@@ -156,7 +156,7 @@ func TestNoneGetAll(t *testing.T) {
 
 func TestSet1GetAll(t *testing.T) {
 	size := 3
-	var b = NewBitMatrixInt(size)
+	var b = newBitMatrixInt(size)
 
 	b = b.None().Set(0).(*bitMatrixInt)
 	// fmt.Println(b)
@@ -174,7 +174,7 @@ func TestSet1GetAll(t *testing.T) {
 
 func TestSet8GetAll(t *testing.T) {
 	size := 3
-	var b = NewBitMatrixInt(size)
+	var b = newBitMatrixInt(size)
 
 	b = b.None().Set(8).(*bitMatrixInt)
 	// fmt.Println(b)
@@ -192,7 +192,7 @@ func TestSet8GetAll(t *testing.T) {
 
 func TestSetAllGetAll(t *testing.T) {
 	size := 3
-	var b = NewBitMatrixInt(size)
+	var b = newBitMatrixInt(size)
 
 	b = b.None().(*bitMatrixInt)
 	for i := 0; i < size*size; i++ {
@@ -211,7 +211,7 @@ func TestSetAllGetAll(t *testing.T) {
 
 func TestSetGet(t *testing.T) {
 	size := 3
-	var b = NewBitMatrixInt(size)
+	var b = newBitMatrixInt(size)
 
 	pos := []int{8, 0, 2, 4}
 	for _, p := range pos {

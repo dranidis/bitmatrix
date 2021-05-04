@@ -54,7 +54,7 @@ var max = []uint64{
 // Basic operations
 //
 
-func NewBitMatrixInt(size int) *bitMatrixInt {
+func newBitMatrixInt(size int) *bitMatrixInt {
 	var b bitMatrixInt
 	b.board = 0
 	b.size = size
@@ -62,7 +62,7 @@ func NewBitMatrixInt(size int) *bitMatrixInt {
 }
 
 func (b *bitMatrixInt) New(size int) BitMatrix {
-	b = NewBitMatrixInt(size)
+	b = newBitMatrixInt(size)
 	return b
 }
 
@@ -75,7 +75,7 @@ func (b *bitMatrixInt) Equal(b1 BitMatrix) bool {
 }
 
 func (b *bitMatrixInt) Clone() BitMatrix {
-	var clone = NewBitMatrixInt(b.size)
+	var clone = newBitMatrixInt(b.size)
 	clone.board = b.board
 	return clone
 }

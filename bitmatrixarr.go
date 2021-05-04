@@ -36,9 +36,9 @@ func initLeftMask(num int) *bitarray.BitArray {
 	return leftMask
 }
 
-// NewBitMatrixArray creates a size x size matrix of bits.
+// newBitMatrixArray creates a size x size matrix of bits.
 // There are no size restrictions. The underlying data strucure is a bit array.
-func NewBitMatrixArray(size int) *bitMatrixArray {
+func newBitMatrixArray(size int) *bitMatrixArray {
 	var b bitMatrixArray
 	b.board = bitarray.New(size * size)
 
@@ -62,7 +62,7 @@ func NewBitMatrixArray(size int) *bitMatrixArray {
 }
 
 func (b *bitMatrixArray) New(size int) BitMatrix {
-	b = NewBitMatrixArray(size)
+	b = newBitMatrixArray(size)
 	return b
 }
 
@@ -71,7 +71,7 @@ func (b *bitMatrixArray) Size() int {
 }
 
 func (b *bitMatrixArray) Clone() BitMatrix {
-	var clone = NewBitMatrixArray(b.size)
+	var clone = newBitMatrixArray(b.size)
 	clone.board = b.board.Clone()
 	return clone
 }
@@ -155,7 +155,7 @@ func (b *bitMatrixArray) Down() BitMatrix {
 func (b *bitMatrixArray) Left() BitMatrix {
 	max := bitarray.New(b.size * b.size)
 	max = max.All()
-	lmask := NewBitMatrixArray(b.size)
+	lmask := newBitMatrixArray(b.size)
 	lmaskBinArray := lmask.leftMask()
 	b.board = b.board.And(lmaskBinArray).ShiftRight(1).And(max)
 	return b
@@ -164,7 +164,7 @@ func (b *bitMatrixArray) Left() BitMatrix {
 func (b *bitMatrixArray) Right() BitMatrix {
 	max := bitarray.New(b.size * b.size)
 	max = max.All()
-	rmask := NewBitMatrixArray(b.size)
+	rmask := newBitMatrixArray(b.size)
 	rmaskBinArray := rmask.rightMask()
 	b.board = b.board.And(rmaskBinArray).ShiftLeft(1).And(max)
 	return b
