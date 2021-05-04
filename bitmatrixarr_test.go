@@ -13,14 +13,14 @@ func TestBM2AllSetCount(t *testing.T) {
 
 func TestBM2RightMask(t *testing.T) {
 	b := NewBitMatrixArray(9)
-	if count := b.RightMask().Count(); count != 9*(9-1) {
+	if count := b.rightMask().Count(); count != 9*(9-1) {
 		t.Errorf("Wrong number of 1 bits: %d", count)
 	}
 }
 
 func TestBM2LeftMask(t *testing.T) {
 	b := NewBitMatrixArray(9)
-	if count := b.LeftMask().Count(); count != 9*(9-1) {
+	if count := b.leftMask().Count(); count != 9*(9-1) {
 		t.Errorf("Wrong number of 1 bits: %d", count)
 	}
 }
@@ -31,7 +31,7 @@ func TestBM2LeftRightMask(t *testing.T) {
 
 	// fmt.Printf("%064b\n", b.board1)
 	// fmt.Printf("%064b\n", b.board2)
-	if count := b.LeftMask().And(b1.RightMask()).Count(); count != 9*(9-2) {
+	if count := b.leftMask().And(b1.rightMask()).Count(); count != 9*(9-2) {
 		t.Errorf("Wrong number of 1 bits: %d", count)
 	}
 }

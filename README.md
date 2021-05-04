@@ -1,5 +1,7 @@
 # bitmatrix
 
+[![GoDoc](https://godoc.org/github.com/dranidis/bitmatrix?status.svg)](https://godoc.org/github.com/dranidis/bitmatrix)
+
 BitMatrix provides an efficient bit matrix implementation.
 
 This is inspired by Kjeld Petersen's BinMatrix implementation (https://senseis.xmp.net/?BinMatrix#diag6).

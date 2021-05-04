@@ -86,11 +86,11 @@ func (b *bitMatrixArray) All() BitMatrix {
 	return b
 }
 
-func (b *bitMatrixArray) RightMask() *bitarray.BitArray {
+func (b *bitMatrixArray) rightMask() *bitarray.BitArray {
 	return rightMask[b.size].Clone()
 }
 
-func (b *bitMatrixArray) LeftMask() *bitarray.BitArray {
+func (b *bitMatrixArray) leftMask() *bitarray.BitArray {
 	return leftMask[b.size].Clone()
 }
 
@@ -156,7 +156,7 @@ func (b *bitMatrixArray) Left() BitMatrix {
 	max := bitarray.New(b.size * b.size)
 	max = max.All()
 	lmask := NewBitMatrixArray(b.size)
-	lmaskBinArray := lmask.LeftMask()
+	lmaskBinArray := lmask.leftMask()
 	b.board = b.board.And(lmaskBinArray).ShiftRight(1).And(max)
 	return b
 }
@@ -165,7 +165,7 @@ func (b *bitMatrixArray) Right() BitMatrix {
 	max := bitarray.New(b.size * b.size)
 	max = max.All()
 	rmask := NewBitMatrixArray(b.size)
-	rmaskBinArray := rmask.RightMask()
+	rmaskBinArray := rmask.rightMask()
 	b.board = b.board.And(rmaskBinArray).ShiftLeft(1).And(max)
 	return b
 }
